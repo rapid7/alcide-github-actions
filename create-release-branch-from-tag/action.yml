@@ -1,0 +1,20 @@
+name: 'Create release branch from tag'
+description: 'create release branch from tag pushed by the user'
+inputs:
+  releaseVersion:
+    description: 'the release version'
+    required: true
+    default: ''
+  releaseHash:
+    description: 'the release commit id'
+    required: true
+    default: ''
+outputs:
+  scriptOutput: 
+    description: "script output"
+    value: ''
+runs:
+  using: "composite"
+  steps: 
+    - run: ${{ github.action_path }}/branch.sh ${{ inputs.releaseVersion }} ${{ inputs.releaseHash }}
+      shell: bash
