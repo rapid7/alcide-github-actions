@@ -9,6 +9,14 @@ inputs:
     description: 'the release commit id'
     required: true
     default: ''
+  gitUserName:
+    description: 'git user name'
+    required: true
+    default: ''
+  gitUserEmail:
+    description: 'git user email'
+    required: true
+    default: ''
 outputs:
   scriptOutput: 
     description: "script output"
@@ -16,5 +24,5 @@ outputs:
 runs:
   using: "composite"
   steps: 
-    - run: ${{ github.action_path }}/branch.sh ${{ inputs.releaseVersion }} ${{ inputs.releaseHash }}
+    - run: ${{ github.action_path }}/branch.sh ${{ inputs.releaseVersion }} ${{ inputs.releaseHash }} ${{ inputs.gitUserName }} ${{ inputs.gitUserEmail }}
       shell: bash

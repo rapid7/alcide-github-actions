@@ -4,6 +4,8 @@ source $(dirname "$0")/common.sh
 
 BRANCH_NAME=$1
 COMMIT_SHA=$2
+GIT_USER_NAME=$3
+GIT_USER_EMAIL=$4
 
 function configureNewBranch()
 {
@@ -38,12 +40,14 @@ function configureNewBranch()
 function gitConfig()
 {
     echo "Configuring git creds"
-    git config --global user.name "alcide jenkins"
-    git config --global user.email "alcidejenkins@rapid7.com"
+    git config --global user.name $GIT_USER_NAME
+    git config --global user.email $GIT_USER_EMAIL
 }
 
 echo "BRANCH_NAME: $BRANCH_NAME"
 echo "COMMIT_SHA: $COMMIT_SHA"
+echo "GIT_USER_NAME: $GIT_USER_NAME"
+echo "GIT_USER_EMAIL: $GIT_USER_EMAIL"
 
 gitConfig
 if [ -z "${COMMIT_SHA}" ]; then
