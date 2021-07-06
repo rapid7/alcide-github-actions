@@ -1,3 +1,3 @@
 # alcide-github-actions
 
-This Repo created in order to centrelize Github-Actions that can be consume using other git repositories in otder to run workflows.
+alcide-github-actions git repository created in order to centralize Github actions that can be consumed using other git repositories in order to run github actions workflows.
