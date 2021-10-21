@@ -1,0 +1,61 @@
+name: 'Slack-Bot'
+description: 'Sending Slack messages'
+inputs:
+  token:
+    description: 'Bot token'
+    required: true
+    default: ''
+
+  channel:
+    description: 'Slack Channel'
+    required: true
+    default: ''
+
+  header:
+    description: 'Message header'
+    required: true
+    default: 'Change-me'
+
+  pre_message:
+    description: 'Pre message'
+    required: true
+    default: 'Change-me'
+
+  message:
+    description: 'Message'
+    required: true
+    default: 'Change-me'
+
+  post_message:
+    description: 'Post Message'
+    required: true
+    default: 'Change-me'
+
+  actor:
+    description: 'Actor'
+    required: true
+    default: 'Change-me'
+
+  release:
+    description: 'Release'
+    required: true
+    default: 'Change-me'
+
+  commit_id:
+    description: 'Commit ID'
+    required: true
+    default: 'Change-me'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.token }}
+    - ${{ inputs.channel }}
+    - ${{ inputs.header }}
+    - ${{ inputs.pre_message }}
+    - ${{ inputs.message }}
+    - ${{ inputs.post_message }}
+    - ${{ inputs.actor }}
+    - ${{ inputs.release }}
+    - ${{ inputs.commit_id }}
