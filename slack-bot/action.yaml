@@ -1,15 +1,18 @@
-name: 'Slack-Bot'
+name: 'The-Slack-Bot'
+branding:
+  icon: 'arrow-up'
+  color: 'green'
 description: 'Sending Slack messages'
 inputs:
   token:
     description: 'Bot token'
     required: true
-    default: ''
+    default: 'Change-me'
 
   channel:
     description: 'Slack Channel'
     required: true
-    default: ''
+    default: 'Change-me'
 
   header:
     description: 'Message header'
@@ -59,3 +62,4 @@ runs:
     - ${{ inputs.actor }}
     - ${{ inputs.release }}
     - ${{ inputs.commit_id }}
+  entrypoint: '/app/entrypoint.sh'

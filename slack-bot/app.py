@@ -2,15 +2,15 @@ import os
 from slack_sdk import WebClient
 from slack_sdk.errors import SlackApiError
 
-token=os.environ['SLACK_BOT_TOKEN']
-channel=os.environ['CHANNEL']
-header=os.environ['HEADER']
-pre_message=os.environ['PRE_MESSAGE']
-message=os.environ['MESSAGE']
-post_message=os.environ['POST_MESSAGE']
-actor=os.environ['ACTOR']
-release=os.environ['RELEASE']
-commit_id=os.environ['COMMIT_ID']
+token=os.environ['token']
+channel=os.environ['channel']
+header=os.environ['header']
+pre_message=os.environ['pre_message']
+message=os.environ['message']
+post_message=os.environ['post_message']
+actor=os.environ['actor']
+release=os.environ['release']
+commit_id=os.environ['commit_id']
 
 client = WebClient(token)
 
