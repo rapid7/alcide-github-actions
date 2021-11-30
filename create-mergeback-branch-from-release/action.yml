@@ -1,0 +1,28 @@
+name: 'create mergeback branch from release branch'
+description: 'create dated mergeback branch from release branch'
+inputs:
+  versionName:
+    description: 'the source branch'
+    required: true
+    default: ''
+  gitUserName:
+    description: 'git user name'
+    required: true
+    default: ''
+  gitUserEmail:
+    description: 'git user email'
+    required: true
+    default: ''
+  gitToken:
+    description: 'git token for authentication'
+    required: true
+    default: ''
+outputs:
+  scriptOutput:
+    description: "script output"
+    value: ''
+runs:
+  using: "composite"
+  steps:
+    - run: ${{ github.action_path }}/branch.sh ${{ inputs.versionName }} ${{ inputs.gitUserName }} ${{ inputs.gitUserEmail }} ${{inputs.gitToken}}
+      shell: bash
