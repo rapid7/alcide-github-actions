@@ -7,9 +7,10 @@ GIT_USER_NAME=$2
 GIT_USER_EMAIL=$3
 GITHUB_TOKEN=$4
 
+cd /home/runner/work/test-divvy/test-divvy/main
+pwd
 function configureNewBranch()
 {
-    cd /home/runner/work/test-divvy/test-divvy/main
     local sourceBranch=$1
     local shortBranchName=${sourceBranch#remotes/origin/}
     echo "#########################################"
