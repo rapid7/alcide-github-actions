@@ -9,6 +9,7 @@ GITHUB_TOKEN=$4
 
 function configureNewBranch()
 {
+    cd ~/main
     local sourceBranch=$1
     local shortBranchName=${sourceBranch#remotes/origin/}
     echo "#########################################"
