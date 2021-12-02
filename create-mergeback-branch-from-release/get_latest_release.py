@@ -8,10 +8,11 @@ with open("branches") as list_of_branches:
         semantic = semantic.split('.')
         semantic = list(map(int, semantic))
         semantic_tuple = tuple(semantic)
-        #print(semantic_tuple)
+        print(semantic_tuple)
         if semantic_tuple > max_version:
-            max_version = semantic_tuple
-            branch_name = branch
+            if semantic_tuple[0] != "99"
+                max_version = semantic_tuple
+                branch_name = branch
 
 #print(max_version)
 print(branch_name)
