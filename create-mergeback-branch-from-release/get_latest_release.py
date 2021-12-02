@@ -10,7 +10,7 @@ with open("branches") as list_of_branches:
         semantic_tuple = tuple(semantic)
         print(semantic_tuple)
         if semantic_tuple > max_version:
-            if semantic_tuple[0] != "99"
+            if semantic_tuple[0] != "99":
                 max_version = semantic_tuple
                 branch_name = branch
 
