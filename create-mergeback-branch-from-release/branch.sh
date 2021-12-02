@@ -9,7 +9,7 @@ GITHUB_TOKEN=$4
 
 function configureNewBranch()
 {
-    cd ~/main
+    cd /home/runner/work/test-divvy/test-divvy/main
     local sourceBranch=$1
     local shortBranchName=${sourceBranch#remotes/origin/}
     echo "#########################################"
@@ -27,7 +27,7 @@ function configureNewBranch()
     echo "finish branching project, pushing to repo"
     git push -u origin $branchReleaseName || error "can't push branch: $branchReleaseName to remote"
     echo "Creating pull request with reviewers:"
-    gh pr create --title $branchReleaseName --body "automatically created because changes detected" --reviewer mrotman-r7 --head $branchReleaseName --base ENG-108111_automate_mergebacks
+    gh pr create --title $branchReleaseName --body "automatically created because changes detected" --reviewer mrotman-r7,ahoze-r7,ashapira-r7 --head $branchReleaseName --base development
     #echo "Creating auto merge for pull request"
     #gh pr merge $branchReleaseName --auto -m
     echo "finished creating pull request"
