@@ -7,7 +7,7 @@ GIT_USER_NAME=$2
 GIT_USER_EMAIL=$3
 GITHUB_TOKEN=$4
 
-cd /home/runner/work/test-divvy/test-divvy/main
+cd /home/runner/work/divvy-dev/divvy-dev/main
 pwd
 function configureNewBranch()
 {
@@ -28,7 +28,7 @@ function configureNewBranch()
     echo "finish branching project, pushing to repo"
     git push -u origin $branchReleaseName || error "can't push branch: $branchReleaseName to remote"
     echo "Creating pull request with reviewers:"
-    gh pr create --title $branchReleaseName --body "automatically created because changes detected" --reviewer mrotman-r7,ahoze-r7,ashapira-r7,rjackoby-r7 --head $branchReleaseName --base development
+    gh pr create --title $branchReleaseName --body "automatically created because changes detected" --reviewer mtieu-r7,krivera-r7,cderamus-r7,bmclarnon-r7,jgreen-r7,kburns-r7,jbuell-r7 --head $branchReleaseName --base development
     #echo "Creating auto merge for pull request"
     #gh pr merge $branchReleaseName --auto -m
     echo "finished creating pull request"
