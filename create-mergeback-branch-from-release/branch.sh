@@ -28,7 +28,7 @@ function configureNewBranch()
     echo "finish branching project, pushing to repo"
     git push -u origin $branchReleaseName || error "can't push branch: $branchReleaseName to remote"
     echo "Creating pull request with reviewers:"
-    gh pr create --title $branchReleaseName --body "automatically created because changes detected" --reviewer mtieu-r7,krivera-r7,cderamus-r7,bmclarnon-r7,jgreen-r7,kburns-r7,jbuell-r7 --head $branchReleaseName --base development
+    gh pr create --title $branchReleaseName --body "automatically created because changes detected" --reviewer mtieu-r7,kkrivera-r7,cderamus-r7,bmclarnon-r7,jgreen-r7,kburns-r7,jbuell-r7 --head $branchReleaseName --base development
     #echo "Creating auto merge for pull request"
     #gh pr merge $branchReleaseName --auto -m
     echo "finished creating pull request"
@@ -51,11 +51,11 @@ echo "GIT_USER_EMAIL: $GIT_USER_EMAIL"
 
 gitConfig
 echo "Checking if development branch is up to date"
-branchDiff=(git diff $VERSION_NAME..development)
+branchDiff=$(git rev-list --right-only --count development...$VERSION_NAME)
 echo "contents of $branchDiff"
 if [ -z "${VERSION_NAME}" ]; then
-    echo "COMMIT_SHA is empty"
-elif [ ! -z "$branchDiff" ]; then
+    echo "Version name is empty"
+elif [ $branchDiff -gt 0 ]; then
   configureNewBranch ${VERSION_NAME}
 else
     echo "Dev branch up to date."
